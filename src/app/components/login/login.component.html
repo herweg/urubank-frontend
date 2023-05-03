@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="card">
+        <h2 class="title">Login</h2>
+        <form [formGroup]="formReg" (ngSubmit)="onSubmit()" class="form">
+            <mat-form-field class="input">
+                <mat-label class="form-label">Email</mat-label>
+                <input matInput placeholder="ejemplo@correo.com" type="text" class="form-control"
+                    formControlName="email">
+            </mat-form-field>
+            <mat-form-field class="input">
+                <mat-label class="form-label">Password</mat-label>
+                <input matInput placeholder="123456" type="password" class="form-control" formControlName="password">
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit" class="button">Log In</button>
+        </form>
+    </div>
+</div>

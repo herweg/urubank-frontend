@@ -2,29 +2,45 @@ import { Component, ViewChild, AfterViewInit } from '@angular/core'
 import { MatPaginator } from '@angular/material/paginator'
 import { MatSort } from '@angular/material/sort'
 import { MatTableDataSource } from '@angular/material/table'
+import { Router } from '@angular/router'
+import { AuthService } from 'src/app/services/auth.service'
 
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+    selector: 'app-main',
+    templateUrl: './main.component.html',
+    styleUrls: ['./main.component.css']
 })
 
-export class AppComponent implements AfterViewInit{
+export class MainComponent implements AfterViewInit {
     displayedColumns: string[] = ['id', 'name', 'phone', 'status', 'action']
     personList: PeopleList = new PeopleList()
     dataSource = new MatTableDataSource<Person>(this.personList.people)
 
+    constructor(
+        private readonly authService: AuthService,
+        private readonly router: Router) {
+
+    }
+
     @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
     @ViewChild(MatSort, { static: true }) sort!: MatSort
 
-    ngOnInit(){
+    ngOnInit() {
         this.dataSource.sort = this.sort
     }
 
     ngAfterViewInit() {
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+    }
+
+    onClick() {
+        this.authService.logout()
+            .then(() => {
+                this.router.navigate(['/login'])
+            })
+            .catch(err => console.log(err))
     }
 }
 
