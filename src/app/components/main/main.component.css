@@ -1,3 +1,8 @@
+.dashboard {
+    display: flex;
+    
+}
+
 .container {
     margin: 2rem auto;
     max-width: 800px;
@@ -7,7 +12,7 @@
     padding: 2rem;
 }
 
-.title{
+.title {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -82,3 +87,6 @@ td.mat-cell {
     background-color: #fff;
     color: #312783;
 }
+
+/* Sidebar */
+.sidebar {}

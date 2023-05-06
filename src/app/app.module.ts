@@ -19,19 +19,26 @@ import { RegisterComponent } from './components/register/register.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSelectModule } from '@angular/material/select';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { MatDividerModule } from '@angular/material/divider';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     MainComponent,
-    RegisterComponent
+    RegisterComponent,
+    SidebarComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
 
+    MatDividerModule,
+    MatSelectModule,
     BrowserAnimationsModule,
     MatInputModule,
     MatPaginatorModule,

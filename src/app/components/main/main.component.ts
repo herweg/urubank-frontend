@@ -13,14 +13,19 @@ import { AuthService } from 'src/app/services/auth.service'
 })
 
 export class MainComponent implements AfterViewInit {
-    displayedColumns: string[] = ['id', 'name', 'phone', 'status', 'action']
+    displayedColumns: string[] = ['id', 'name', 'phone', 'status', 'action', 'send']
     personList: PeopleList = new PeopleList()
     dataSource = new MatTableDataSource<Person>(this.personList.people)
+    autorizados!: number
+    noAutorizados!: number
+    pendientes!: number
 
     constructor(
         private readonly authService: AuthService,
         private readonly router: Router) {
-
+        this.autorizados = 0
+        this.noAutorizados = 0
+        this.pendientes = 0
     }
 
     @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
@@ -28,6 +33,7 @@ export class MainComponent implements AfterViewInit {
 
     ngOnInit() {
         this.dataSource.sort = this.sort
+        this.getStatus()
     }
 
     ngAfterViewInit() {
@@ -41,6 +47,24 @@ export class MainComponent implements AfterViewInit {
                 this.router.navigate(['/login'])
             })
             .catch(err => console.log(err))
+    }
+
+    getStatus() {
+        const autorizado = this.personList.people.filter(person => {
+            return person.action === "autorizado"
+        })
+        console.log(autorizado)
+
+        const noAutorizado = this.personList.people.filter(person => {
+            return person.status === "active"
+        })
+        console.log(noAutorizado)
+        this.noAutorizados = noAutorizado.length
+
+        const pendiente = this.personList.people.filter(person => {
+            return person.status === "pendiente"
+        })
+        console.log(pendiente)
     }
 }
 
@@ -65,12 +89,62 @@ export class PeopleList {
 
     constructor() {
         const peopleData = [
+            { id: 1, name: 'John Doe', phone: '555-1234', status: 'autorizado', action: 'edit' },
+            { id: 2, name: 'Jane Smith', phone: '555-5678', status: 'inactive', action: 'edit' },
+            { id: 3, name: 'Bob Johnson', phone: '555-9101', status: 'active', action: 'edit' },
             { id: 1, name: 'John Doe', phone: '555-1234', status: 'active', action: 'edit' },
             { id: 2, name: 'Jane Smith', phone: '555-5678', status: 'inactive', action: 'edit' },
-            { id: 3, name: 'Bob Johnson', phone: '555-9101', status: 'active', action: 'edit' }
+            { id: 3, name: 'Bob Johnson', phone: '555-9101', status: 'active', action: 'edit' },
+            { id: 1, name: 'John Doe', phone: '555-1234', status: 'active', action: 'edit' },
+            { id: 2, name: 'Jane Smith', phone: '555-5678', status: 'inactive', action: 'edit' },
+            { id: 3, name: 'Bob Johnson', phone: '555-9101', status: 'active', action: 'edit' },
+            { id: 1, name: 'John Doe', phone: '555-1234', status: 'active', action: 'edit' },
+            { id: 2, name: 'Jane Smith', phone: '555-5678', status: 'inactive', action: 'edit' },
+            { id: 3, name: 'Bob Johnson', phone: '555-9101', status: 'active', action: 'edit' },
+            { id: 1, name: 'John Doe', phone: '555-1234', status: 'active', action: 'edit' },
+            { id: 2, name: 'Jane Smith', phone: '555-5678', status: 'inactive', action: 'edit' },
+            { id: 3, name: 'Bob Johnson', phone: '555-9101', status: 'active', action: 'edit' },
+            { id: 1, name: 'John Doe', phone: '555-1234', status: 'active', action: 'edit' },
+            { id: 2, name: 'Jane Smith', phone: '555-5678', status: 'inactive', action: 'edit' },
+            { id: 3, name: 'Bob Johnson', phone: '555-9101', status: 'active', action: 'edit' },
+            { id: 1, name: 'John Doe', phone: '555-1234', status: 'active', action: 'edit' },
+            { id: 2, name: 'Jane Smith', phone: '555-5678', status: 'inactive', action: 'edit' },
+            { id: 3, name: 'Bob Johnson', phone: '555-9101', status: 'active', action: 'edit' },
+            { id: 1, name: 'John Doe', phone: '555-1234', status: 'active', action: 'edit' },
+            { id: 2, name: 'Jane Smith', phone: '555-5678', status: 'inactive', action: 'edit' },
+            { id: 3, name: 'Bob Johnson', phone: '555-9101', status: 'active', action: 'edit' },
+            { id: 1, name: 'John Doe', phone: '555-1234', status: 'active', action: 'edit' },
+            { id: 2, name: 'Jane Smith', phone: '555-5678', status: 'inactive', action: 'edit' },
+            { id: 3, name: 'Bob Johnson', phone: '555-9101', status: 'active', action: 'edit' },
+            { id: 1, name: 'John Doe', phone: '555-1234', status: 'active', action: 'edit' },
+            { id: 2, name: 'Jane Smith', phone: '555-5678', status: 'inactive', action: 'edit' },
+            { id: 3, name: 'Bob Johnson', phone: '555-9101', status: 'active', action: 'edit' },
+            { id: 1, name: 'John Doe', phone: '555-1234', status: 'active', action: 'edit' },
+            { id: 2, name: 'Jane Smith', phone: '555-5678', status: 'inactive', action: 'edit' },
+            { id: 3, name: 'Bob Johnson', phone: '555-9101', status: 'active', action: 'edit' },
+            { id: 1, name: 'John Doe', phone: '555-1234', status: 'active', action: 'edit' },
+            { id: 2, name: 'Jane Smith', phone: '555-5678', status: 'inactive', action: 'edit' },
+            { id: 3, name: 'Bob Johnson', phone: '555-9101', status: 'active', action: 'edit' },
+            { id: 1, name: 'John Doe', phone: '555-1234', status: 'active', action: 'edit' },
+            { id: 2, name: 'Jane Smith', phone: '555-5678', status: 'inactive', action: 'edit' },
+            { id: 3, name: 'Bob Johnson', phone: '555-9101', status: 'active', action: 'edit' },
+            { id: 1, name: 'John Doe', phone: '555-1234', status: 'active', action: 'edit' },
+            { id: 2, name: 'Jane Smith', phone: '555-5678', status: 'inactive', action: 'edit' },
+            { id: 3, name: 'Bob Johnson', phone: '555-9101', status: 'active', action: 'edit' },
+            { id: 1, name: 'John Doe', phone: '555-1234', status: 'active', action: 'edit' },
+            { id: 2, name: 'Jane Smith', phone: '555-5678', status: 'inactive', action: 'edit' },
+            { id: 3, name: 'Bob Johnson', phone: '555-9101', status: 'active', action: 'edit' },
+            { id: 1, name: 'John Doe', phone: '555-1234', status: 'active', action: 'edit' },
+            { id: 2, name: 'Jane Smith', phone: '555-5678', status: 'inactive', action: 'edit' },
+            { id: 3, name: 'Bob Johnson', phone: '555-9101', status: 'active', action: 'edit' },
+            { id: 1, name: 'John Doe', phone: '555-1234', status: 'active', action: 'edit' },
+            { id: 2, name: 'Jane Smith', phone: '555-5678', status: 'inactive', action: 'edit' },
+            { id: 3, name: 'Bob Johnson', phone: '555-9101', status: 'active', action: 'edit' },
+            { id: 1, name: 'John Doe', phone: '555-1234', status: 'active', action: 'edit' },
+            { id: 2, name: 'Jane Smith', phone: '555-5678', status: 'inactive', action: 'edit' },
+            { id: 3, name: 'Bob Johnson', phone: '555-9101', status: 'active', action: 'edit' },
         ]
 
-        // Create an array of Person objects and assign to the class property
         this.people = peopleData.map(personData => new Person(personData.id, personData.name, personData.phone, personData.status, personData.action))
     }
 }
