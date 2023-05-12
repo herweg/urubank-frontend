@@ -7,7 +7,7 @@ import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard'
 
 const routes: Routes = [
 
-  { path: '', redirectTo: 'register', pathMatch: 'full' },
+  //{ path: '', redirectTo: 'register', pathMatch: 'full' },
 
   { path: 'register', component: RegisterComponent },
 
