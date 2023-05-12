@@ -7,20 +7,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent } from '../components/main/app.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MainComponent } from './components/main/main.component';
-import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from '../components/dashboard/dashboard.component';
+import { LoginComponent } from '../components/login/login.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
+import { environment } from '../../../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
-import { RegisterComponent } from './components/register/register.component';
+import { RegisterComponent } from '../components/register/register.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SidebarComponent } from '../components/sidebar/sidebar.component';
 import { MatDividerModule } from '@angular/material/divider';
 
 
@@ -28,7 +28,7 @@ import { MatDividerModule } from '@angular/material/divider';
   declarations: [
     AppComponent,
     LoginComponent,
-    MainComponent,
+    DashboardComponent,
     RegisterComponent,
     SidebarComponent
   ],

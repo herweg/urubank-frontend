@@ -3,16 +3,16 @@ import { MatPaginator } from '@angular/material/paginator'
 import { MatSort } from '@angular/material/sort'
 import { MatTableDataSource } from '@angular/material/table'
 import { Router } from '@angular/router'
-import { AuthService } from 'src/app/services/auth.service'
+import { AuthService } from '../../../infrastructure/services/auth.service'
 
 
 @Component({
-    selector: 'app-main',
-    templateUrl: './main.component.html',
-    styleUrls: ['./main.component.css']
+    selector: 'app-dashboard',
+    templateUrl: './dashboard.component.html',
+    styleUrls: ['./dashboard.component.css']
 })
 
-export class MainComponent implements AfterViewInit {
+export class DashboardComponent implements AfterViewInit {
     displayedColumns: string[] = ['id', 'phone', 'status', 'created', 'completed', 'pdf', 'action', 'send']
     personList: PeopleList = new PeopleList()
     dataSource = new MatTableDataSource<Person>(this.personList.people)
