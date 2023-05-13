@@ -1,23 +1,24 @@
 import { Injectable } from "@angular/core";
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "@angular/fire/auth"
+//import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "@angular/fire/auth"
+import { AuthService } from "@auth0/auth0-angular";
 
 @Injectable({
     providedIn: 'root'
 })
-export class AuthService {
-    constructor(private readonly auth: Auth) {
+export class AuthenticationService {
+    // constructor(private readonly auth: AuthService) {
 
-    }
+    // }
 
-    register({ email, password }: any) {
-        return createUserWithEmailAndPassword(this.auth, email, password)
-    }
+    // isAuthenticated() {
+    //     this.auth.isAuthenticated$
+    // }
 
-    login({ email, password }: any) {
-        return signInWithEmailAndPassword(this.auth, email, password)
-    }
+    // login() {
+    //     return this.auth.loginWithRedirect()
+    // }
 
-    logout() {
-        return signOut(this.auth)
-    }
+    // logout() {
+    //     return this.auth.logout()
+    // }
 }

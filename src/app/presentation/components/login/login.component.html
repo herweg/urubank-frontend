@@ -1,9 +1,7 @@
 <div class="container">
-    <!-- <img src="../../../assets/Normal.png" alt=""> -->
     <div class="card">
-        <h2 class="title">Login</h2>
-        <!-- (ngSubmit)="onSubmit()" -->
-        <form class="form" [formGroup]="formReg" >
+        <h2 class="title">Login Urubank</h2>
+        <!-- <form class="form" [formGroup]="formReg">
             <mat-form-field class="input">
                 <mat-label class="form-label">Email</mat-label>
                 <input matInput placeholder="ejemplo@correo.com" type="email" class="form-control"
@@ -16,7 +14,7 @@
             <button mat-raised-button color="primary" type="submit" class="button">Log In</button>
             <p>Aun no tenes cuenta en Urubank?</p>
             <p>Envia tu solicitud desde <a href="http://localhost:4200/register">este link</a></p>
-            <p>Auth0 <a (click)="auth0Login()">Login</a></p>
-        </form>
+        </form> -->
+        <button (click)="auth0Login()">Login</button>
     </div>
 </div>

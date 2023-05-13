@@ -22,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
 import { SidebarComponent } from '../components/sidebar/sidebar.component';
 import { MatDividerModule } from '@angular/material/divider';
+import { AuthModule } from '@auth0/auth0-angular';
 
 
 @NgModule({
@@ -48,8 +49,20 @@ import { MatDividerModule } from '@angular/material/divider';
     BrowserModule,
     AppRoutingModule,
     MatFormFieldModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
+    // provideFirebaseApp(() => initializeApp(environment.firebase)),
+    // provideAuth(() => getAuth()),
+    
+    //auth0
+    BrowserModule,
+
+    // Import the module into the application, with configuration
+    AuthModule.forRoot({
+      domain: 'dev-iqhd61urcqt04s0i.us.auth0.com',
+      clientId: 'pE0SIWtesh0o3VNRUC5zwhHUnGUkbRdb',
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
+    }),
     NgbModule
   ],
   providers: [],

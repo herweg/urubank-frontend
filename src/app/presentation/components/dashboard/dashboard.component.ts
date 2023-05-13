@@ -2,9 +2,8 @@ import { Component, ViewChild, AfterViewInit } from '@angular/core'
 import { MatPaginator } from '@angular/material/paginator'
 import { MatSort } from '@angular/material/sort'
 import { MatTableDataSource } from '@angular/material/table'
-import { Router } from '@angular/router'
-import { AuthService } from '../../../infrastructure/services/auth.service'
 
+import { AuthService } from '@auth0/auth0-angular'
 
 @Component({
     selector: 'app-dashboard',
@@ -21,8 +20,8 @@ export class DashboardComponent implements AfterViewInit {
     pendientes!: number
 
     constructor(
-        private readonly authService: AuthService,
-        private readonly router: Router) {
+        private readonly auth0: AuthService,
+    ) {
         this.autorizados = 0
         this.noAutorizados = 0
         this.pendientes = 0
@@ -41,12 +40,8 @@ export class DashboardComponent implements AfterViewInit {
         this.dataSource.sort = this.sort;
     }
 
-    onClick() {
-        this.authService.logout()
-            .then(() => {
-                this.router.navigate(['/login'])
-            })
-            .catch(err => console.log(err))
+    logOut() {
+        this.auth0.logout()
     }
 
     getStatus() {
