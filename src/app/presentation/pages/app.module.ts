@@ -49,13 +49,8 @@ import { AuthModule } from '@auth0/auth0-angular';
     BrowserModule,
     AppRoutingModule,
     MatFormFieldModule,
-    // provideFirebaseApp(() => initializeApp(environment.firebase)),
-    // provideAuth(() => getAuth()),
-    
-    //auth0
     BrowserModule,
 
-    // Import the module into the application, with configuration
     AuthModule.forRoot({
       domain: 'dev-iqhd61urcqt04s0i.us.auth0.com',
       clientId: 'pE0SIWtesh0o3VNRUC5zwhHUnGUkbRdb',
