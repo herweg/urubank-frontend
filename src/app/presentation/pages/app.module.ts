@@ -24,6 +24,7 @@ import { SidebarComponent } from '../components/sidebar/sidebar.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { AuthModule } from '@auth0/auth0-angular';
 import { MatSortModule } from '@angular/material/sort';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatFormFieldModule,
     BrowserModule,
     MatSortModule,
+    HttpClientModule,
 
     AuthModule.forRoot({
       domain: 'dev-12ryn7av04h732nn.us.auth0.com',
