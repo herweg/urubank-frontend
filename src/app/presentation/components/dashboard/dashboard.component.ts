@@ -15,7 +15,7 @@ import { GetLeadsRepository } from 'src/app/infrastructure/api/repositories/get.
 })
 export class DashboardComponent implements AfterViewInit, OnInit {
 
-    displayedColumns: string[] = ['id', 'phone', 'state', 'status', 'created', 'completed', 'pdf', 'action', 'send']
+    displayedColumns: string[] = ['phone', 'state', 'status', 'created', 'completed', 'pdf', 'action', 'send']
     dataSource: MatTableDataSource<LeadEntity> = new MatTableDataSource<LeadEntity>()
 
     leadsTable: LeadsTableEntity = new LeadsTableEntity()
