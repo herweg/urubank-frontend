@@ -25,7 +25,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { AuthModule } from '@auth0/auth0-angular';
 import { MatSortModule } from '@angular/material/sort';
 import { HttpClientModule } from '@angular/common/http';
-
+import { GetLeadsRepository } from 'src/app/infrastructure/api/repositories/get.leads.repository';
 
 @NgModule({
   declarations: [
@@ -42,17 +42,17 @@ import { HttpClientModule } from '@angular/common/http';
 
     MatDividerModule,
     MatSelectModule,
-    BrowserAnimationsModule,
     MatInputModule,
     MatPaginatorModule,
     MatTableModule,
     MatButtonModule,
     MatListModule,
+    MatFormFieldModule,
+    MatSortModule,
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
-    MatFormFieldModule,
     BrowserModule,
-    MatSortModule,
     HttpClientModule,
 
     AuthModule.forRoot({
@@ -64,7 +64,7 @@ import { HttpClientModule } from '@angular/common/http';
     }),
     NgbModule
   ],
-  providers: [],
+  providers: [GetLeadsRepository],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

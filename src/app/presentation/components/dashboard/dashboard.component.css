@@ -49,12 +49,12 @@ h2 {
     margin-left: 10px;
 }
 
-table {
+mat-table {
     margin-top: 2rem;
     width: 100%;
 }
 
-table th {
+mat-table mat-header-cell {
     background-color: #2F314B;
     font-weight: bold;
     color: rgb(218, 218, 243);

@@ -23,63 +23,73 @@
     </div>
 
     <div class="container">
-        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-
+        <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+            <!-- ID Column -->
             <ng-container matColumnDef="id">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header="id"> Id Gestion </th>
-                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                <mat-cell *matCellDef="let lead">{{ lead.id }}</mat-cell>
             </ng-container>
 
+            <!-- Phone Column -->
             <ng-container matColumnDef="phone">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header="phone"> Telefono </th>
-                <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Phone </mat-header-cell>
+                <mat-cell *matCellDef="let lead">{{ lead.phone }}</mat-cell>
             </ng-container>
 
+            <!-- State Column -->
             <ng-container matColumnDef="state">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header="state"> Departamento </th>
-                <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+                <mat-header-cell *matHeaderCellDef mat-sort-header> State </mat-header-cell>
+                <mat-cell *matCellDef="let lead">{{ lead.state }}</mat-cell>
             </ng-container>
 
+            <!-- Status Column -->
             <ng-container matColumnDef="status">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header="status"> Estado </th>
-                <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+                <mat-cell *matCellDef="let lead">{{ lead.status }}</mat-cell>
             </ng-container>
 
+            <!-- Created Column -->
             <ng-container matColumnDef="created">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header="createdAt"> Creada </th>
-                <td mat-cell *matCellDef="let element"> {{element.createdAt}} </td>
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Created </mat-header-cell>
+                <mat-cell *matCellDef="let lead">{{ lead.created }}</mat-cell>
             </ng-container>
 
+            <!-- Completed Column -->
             <ng-container matColumnDef="completed">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header="completedAt"> Completada </th>
-                <td mat-cell *matCellDef="let element"> {{element.completedAt}} </td>
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Completed </mat-header-cell>
+                <mat-cell *matCellDef="let lead">{{ lead.completed }}</mat-cell>
             </ng-container>
 
+            <!-- PDF Column -->
             <ng-container matColumnDef="pdf">
-                <th mat-header-cell *matHeaderCellDef> Pdf </th>
-                <td mat-cell *matCellDef="let element"> <a href="">*.pdf</a> </td>
+                <mat-header-cell *matHeaderCellDef mat-sort-header> PDF </mat-header-cell>
+                <mat-cell *matCellDef="let lead">{{ lead.pdf }}<a href="">*.pdf</a></mat-cell>
             </ng-container>
 
+            <!-- Action Column -->
             <ng-container matColumnDef="action">
-                <th mat-header-cell *matHeaderCellDef> Accion </th>
-                <td mat-cell *matCellDef="let element">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
+                <mat-cell *matCellDef="let lead">{{ lead.action }}
                     <mat-select value="0">
                         <mat-option value="0" selected disabled hidden>Elegir acción</mat-option>
                         <mat-option value="autorizado" style="background:rgb(70, 168, 83)">Autorizado</mat-option>
                         <mat-option value="noAutorizado" style="background:rgb(168, 70, 70)">No Autorizado</mat-option>
                         <mat-option value="pendiente" style="background:rgb(168, 160, 70)">Pendiente</mat-option>
                     </mat-select>
-                </td>
+                </mat-cell>
             </ng-container>
 
+            <!-- Send Column -->
             <ng-container matColumnDef="send">
-                <th mat-header-cell *matHeaderCellDef> Enviar </th>
-                <td mat-cell *matCellDef="let element"> <button>Enviar</button> </td>
+                <mat-header-cell *matHeaderCellDef> Send </mat-header-cell>
+                <mat-cell *matCellDef="let lead">{{ lead.send }}<button>Enviar</button></mat-cell>
             </ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
+            <!-- Header Row -->
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <!-- Data Rows -->
+            <mat-row *matRowDef="let lead; columns: displayedColumns"></mat-row>
+        </mat-table>
         <mat-paginator [length]="100" [pageSize]="10" aria-label="Select page">
         </mat-paginator>
     </div>

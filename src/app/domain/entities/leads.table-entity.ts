@@ -1,9 +1,8 @@
 import { LeadEntity } from './lead-entity';
 export class LeadsTableEntity {
+    leadEntities: LeadEntity[];
 
-    leadsData: LeadEntity[]
-
-    constructor(public leadEntites: LeadEntity[]) {
-        this.leadsData = leadEntites
+    constructor(leadEntities: LeadEntity[] = []) {
+        this.leadEntities = leadEntities;
     }
 }

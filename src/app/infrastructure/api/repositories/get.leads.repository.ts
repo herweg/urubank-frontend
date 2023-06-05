@@ -1,11 +1,14 @@
 import { Observable } from "rxjs";
 import { LeadsService } from "../../services/leads.service";
-import { LeadsTableEntity } from "src/app/domain/entities/leads.table-entity";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { IResponse } from "src/app/domain/interfaces/response-interface";
+import { LeadEntity } from "src/app/domain/entities/lead-entity";
 
+@Injectable()
 export class GetLeadsRepository extends LeadsService {
 
-    url: string = "http://localhost"
+    url: string = "http://localhost:3000/api/clients/findall"
 
     httpOptions = {
         headers: new HttpHeaders({
@@ -19,8 +22,8 @@ export class GetLeadsRepository extends LeadsService {
         super();
     }
 
-    override getLeads(): Observable<LeadsTableEntity> {
-        return this.http.get<LeadsTableEntity>(this.url, this.httpOptions)
+    override getLeads(): Observable<IResponse<LeadEntity[]>> {
+        return this.http.get<IResponse<LeadEntity[]>>(this.url, this.httpOptions)
     }
 
 }
