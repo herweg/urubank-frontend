@@ -24,11 +24,6 @@
 
     <div class="container">
         <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-            <!-- ID Column -->
-            <ng-container matColumnDef="id">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
-                <mat-cell *matCellDef="let lead">{{ lead.id }}</mat-cell>
-            </ng-container>
 
             <!-- Phone Column -->
             <ng-container matColumnDef="phone">

@@ -36,10 +36,16 @@ import { GetLeadsRepository } from 'src/app/infrastructure/api/repositories/get.
     SidebarComponent
   ],
   imports: [
+    HttpClientModule,
     CommonModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+
     FormsModule,
     ReactiveFormsModule,
 
+    //Angular Material
     MatDividerModule,
     MatSelectModule,
     MatInputModule,
@@ -49,12 +55,8 @@ import { GetLeadsRepository } from 'src/app/infrastructure/api/repositories/get.
     MatListModule,
     MatFormFieldModule,
     MatSortModule,
-    BrowserAnimationsModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserModule,
-    HttpClientModule,
 
+    //Auth0
     AuthModule.forRoot({
       domain: 'dev-12ryn7av04h732nn.us.auth0.com',
       clientId: 'OmlD2aL8W7KRsBw0F5jN1aWD1OrIdEhx',
