@@ -41,13 +41,13 @@
             <!-- Created Column -->
             <ng-container matColumnDef="created">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Created </mat-header-cell>
-                <mat-cell *matCellDef="let lead">{{ lead.created }}</mat-cell>
+                <mat-cell *matCellDef="let lead">{{ lead.createdAt }}</mat-cell>
             </ng-container>
 
             <!-- Completed Column -->
             <ng-container matColumnDef="completed">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Completed </mat-header-cell>
-                <mat-cell *matCellDef="let lead">{{ lead.completed }}</mat-cell>
+                <mat-cell *matCellDef="let lead">{{ lead.completedAt }}</mat-cell>
             </ng-container>
 
             <!-- PDF Column -->
