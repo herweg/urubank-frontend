@@ -6,7 +6,7 @@ export class LeadEntity implements ILeadEntity {
     fullName: string
     status: number
     phone: string
-    departament: string
+    state: string
     document: string
     createdAt?: number | undefined
     completedAt?: number | undefined
@@ -17,7 +17,7 @@ export class LeadEntity implements ILeadEntity {
         this.fullName = data.fullName
         this.status = data.status
         this.phone = data.phone
-        this.departament = data.departament
+        this.state = data.state
         this.document = data.document
         this.createdAt = data.createdAt
         this.completedAt = data.completedAt

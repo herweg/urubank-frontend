@@ -1,24 +1,19 @@
-<div class="title">
-    <h2>Interested users</h2>
-    <button class="button" (click)="logOut()">Logout</button>
-</div>
-
 <div class="dashboard">
 
     <div class="sidebar">
         <mat-list>
-            <mat-list-item style="background-color: rgb(102, 77, 131);">Resumen de estados</mat-list-item>
-            <mat-list-item>Aprobados: {{autorizados}}</mat-list-item>
+            <mat-list-item style="background-color: rgb(102, 77, 131);">Summary</mat-list-item>
+            <mat-list-item>Approved: {{autorizados}}</mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item>No aprobados: {{noAutorizados}}</mat-list-item>
+            <mat-list-item>Not approved: {{noAutorizados}}</mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item>No finalizó: {{pendientes}}</mat-list-item>
-            ------------------------------------------------
-            <mat-list-item>Autorizados: {{pendientes}}</mat-list-item>
+            <mat-list-item>Pending: {{pendientes}}</mat-list-item>
+            ---------------------------
+            <mat-list-item>Autorized: {{pendientes}}</mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item>No autorizados: {{pendientes}}</mat-list-item>
+            <mat-list-item>Not autorized: {{pendientes}}</mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item>Pendientes: {{pendientes}}</mat-list-item>
+            <mat-list-item>Pending: {{pendientes}}</mat-list-item>
         </mat-list>
     </div>
 
@@ -33,7 +28,7 @@
 
             <!-- State Column -->
             <ng-container matColumnDef="state">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> State </mat-header-cell>
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Location </mat-header-cell>
                 <mat-cell *matCellDef="let lead">{{ lead.state }}</mat-cell>
             </ng-container>
 
@@ -66,18 +61,18 @@
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
                 <mat-cell *matCellDef="let lead">{{ lead.action }}
                     <mat-select value="0">
-                        <mat-option value="0" selected disabled hidden>Elegir acción</mat-option>
-                        <mat-option value="autorizado" style="background:rgb(70, 168, 83)">Autorizado</mat-option>
-                        <mat-option value="noAutorizado" style="background:rgb(168, 70, 70)">No Autorizado</mat-option>
-                        <mat-option value="pendiente" style="background:rgb(168, 160, 70)">Pendiente</mat-option>
+                        <mat-option value="0" selected disabled hidden>Choose</mat-option>
+                        <mat-option value="autorizado" style="background:rgb(70, 168, 83)">Autorized</mat-option>
+                        <mat-option value="noAutorizado" style="background:rgb(168, 70, 70)">Not Autorized</mat-option>
+                        <mat-option value="pendiente" style="background:rgb(168, 160, 70)">Pending</mat-option>
                     </mat-select>
                 </mat-cell>
             </ng-container>
 
             <!-- Send Column -->
             <ng-container matColumnDef="send">
-                <mat-header-cell *matHeaderCellDef> Send </mat-header-cell>
-                <mat-cell *matCellDef="let lead">{{ lead.send }}<button>Enviar</button></mat-cell>
+                <mat-header-cell *matHeaderCellDef> Save </mat-header-cell>
+                <mat-cell *matCellDef="let lead">{{ lead.send }}<button>Send</button></mat-cell>
             </ng-container>
 
             <!-- Header Row -->

@@ -4,7 +4,7 @@ export interface ILeadEntity {
     fullName: string
     status: number
     phone: string
-    departament: string
+    state: string
     document: string
     createdAt?: number
     completedAt?: number
