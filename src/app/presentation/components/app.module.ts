@@ -29,6 +29,7 @@ import { GetLeadsRepository } from 'src/app/infrastructure/api/repositories/get.
 import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
 import { GraphsComponent } from './graphs/graphs.component';
+import { MatTableExporterModule } from 'mat-table-exporter';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { GraphsComponent } from './graphs/graphs.component';
     MatListModule,
     MatFormFieldModule,
     MatSortModule,
+    MatTableExporterModule,
 
     //Auth0
     AuthModule.forRoot({

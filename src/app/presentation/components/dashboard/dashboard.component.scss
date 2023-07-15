@@ -58,6 +58,13 @@ mat-table mat-header-cell {
     color: rgb(255, 255, 255);
 }
 
+.exporter-btn{
+    position: absolute;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    right: 5vw;
+}
+
 mat-paginator {
     display: flex;
     justify-content: center;

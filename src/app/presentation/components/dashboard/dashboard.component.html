@@ -18,8 +18,9 @@
     </div> -->
 
     <div class="container">
-        <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-
+        <h2>Dashboard $[financiera]</h2>
+        <mat-table matTableExporter [dataSource]="dataSource" #exporter="matTableExporter" matSort class="mat-elevation-z8">
+            
             <!-- Id Column -->
             <ng-container matColumnDef="id">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Id </mat-header-cell>
@@ -128,7 +129,11 @@
             <!-- Data Rows -->
             <mat-row *matRowDef="let lead; columns: displayedColumns"></mat-row>
         </mat-table>
+        
+        <button class="exporter-btn" mat-button (click)="exporter.exportTable('xlsx')">Export</button>
+
         <mat-paginator [length]="100" [pageSize]="10" aria-label="Select page">
         </mat-paginator>
+        
     </div>
 </div>
