@@ -18,9 +18,12 @@
     </div> -->
 
     <div class="container">
+
         <h2>Dashboard $[financiera]</h2>
-        <mat-table matTableExporter [dataSource]="dataSource" #exporter="matTableExporter" matSort class="mat-elevation-z8">
-            
+
+        <mat-table matTableExporter [dataSource]="dataSource" #exporter="matTableExporter" matSort
+            class="mat-elevation-z8">
+
             <!-- Id Column -->
             <ng-container matColumnDef="id">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Id </mat-header-cell>
@@ -50,25 +53,25 @@
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Documento </mat-header-cell>
                 <mat-cell *matCellDef="let lead">{{ lead.document }}</mat-cell>
             </ng-container>
-            
+
             <!-- email Column -->
             <ng-container matColumnDef="email">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
                 <mat-cell *matCellDef="let lead">{{ lead.email }}</mat-cell>
             </ng-container>
-            
+
             <!-- State Column -->
             <ng-container matColumnDef="state">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Departamento </mat-header-cell>
                 <mat-cell *matCellDef="let lead">{{ lead.state }}</mat-cell>
             </ng-container>
-            
+
             <!-- city Column -->
             <ng-container matColumnDef="city">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Ciudad </mat-header-cell>
                 <mat-cell *matCellDef="let lead">{{ lead.city }}</mat-cell>
             </ng-container>
-            
+
             <!-- amount Column -->
             <ng-container matColumnDef="amount">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Monto ($) </mat-header-cell>
@@ -80,19 +83,19 @@
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Estado de aplicacion </mat-header-cell>
                 <mat-cell *matCellDef="let lead">{{ lead.applicationStatus }}</mat-cell>
             </ng-container>
-            
+
             <!-- processStatus Column -->
             <ng-container matColumnDef="processStatus">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>
                 <mat-cell *matCellDef="let lead">{{ lead.processStatus }}</mat-cell>
             </ng-container>
-            
+
             <!-- campaign Column -->
             <ng-container matColumnDef="campaign">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Campaña </mat-header-cell>
                 <mat-cell *matCellDef="let lead">{{ lead.campaign }}</mat-cell>
             </ng-container>
-            
+
             <!-- financiera Column -->
             <ng-container matColumnDef="financiera">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Financiera </mat-header-cell>
@@ -129,11 +132,13 @@
             <!-- Data Rows -->
             <mat-row *matRowDef="let lead; columns: displayedColumns"></mat-row>
         </mat-table>
-        
-        <button class="exporter-btn" mat-button (click)="exporter.exportTable('xlsx')">Export</button>
 
-        <mat-paginator [length]="100" [pageSize]="10" aria-label="Select page">
-        </mat-paginator>
-        
+        <div class="paginator-container">
+            <div class="paginator-wrapper">
+                <mat-paginator [length]="100" [pageSize]="10" aria-label="Select page"></mat-paginator>
+            </div>
+            <button class="exporter-btn" mat-button (click)="exporter.exportTable('xlsx')">Export</button>
+        </div>
+
     </div>
 </div>
