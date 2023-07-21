@@ -1,6 +1,6 @@
 import { Observable } from "rxjs";
 import { LeadsService } from "../../services/leads.service";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders} from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { IResponse } from "src/app/domain/interfaces/response-interface";
 import { LeadEntity } from "src/app/domain/entities/lead-entity";
@@ -8,7 +8,7 @@ import { LeadEntity } from "src/app/domain/entities/lead-entity";
 @Injectable()
 export class GetLeadsRepository extends LeadsService {
 
-    url: string = "http://ec2-15-229-48-185.sa-east-1.compute.amazonaws.com:3000/api/clients/findall"
+    url: string = "https://ec2-15-229-48-185.sa-east-1.compute.amazonaws.com:3000/api/clients/findall"
 
     httpOptions = {
         headers: new HttpHeaders({
