@@ -9,7 +9,7 @@ export class LeadEntity implements ILeadEntity {
     document: string
     email: string
     state: string
-    city: string
+    city: string //Adress
     amount: number
     applicationStatus: boolean
     processStatus: number //(pending, inProces, completed)
