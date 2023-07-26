@@ -8,7 +8,7 @@ import { LeadEntity } from "src/app/domain/entities/lead-entity";
 @Injectable()
 export class GetLeadsRepository extends LeadsService {
 
-    url: string = "https://ec2-15-229-48-185.sa-east-1.compute.amazonaws.com:80/clients/findall"
+    url: string = "https://api.going.uy/clients/findall"
 
     httpOptions = {
         headers: new HttpHeaders({
