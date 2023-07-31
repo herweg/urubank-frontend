@@ -8,7 +8,7 @@ import { LeadEntity } from "src/app/domain/entities/lead-entity";
 @Injectable()
 export class GetLeadsRepository extends LeadsService {
 
-    url: string = "https://api.going.uy/clients/findall"
+    url: string = "https://api.going.uy/leads/findall"
 
     httpOptions = {
         headers: new HttpHeaders({
